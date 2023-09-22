@@ -1,12 +1,12 @@
 package com.tinkoff.edu.demo;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Test class, test case, fixture
@@ -21,7 +21,7 @@ public class ArrayListTest {
     /**
      * Test method
      */
-    @Test
+    @Test // @Disabled
     public void shouldAddElement() {
         Object dummy = new Object();
         sut.add(dummy);
@@ -31,8 +31,12 @@ public class ArrayListTest {
     }
 
     @Test
-    public void shouldGetElementWhenIndexOfBounds() {
-        sut.get(0);
+    public void shouldGetErrorWhenGetIndexOfBounds() {
+        var thrown = assertThrows (
+                IndexOutOfBoundsException.class,
+                () -> sut.get(0)
+        );
+        assertTrue(thrown.getMessage().contains("out of bounds"));
     }
 
 }

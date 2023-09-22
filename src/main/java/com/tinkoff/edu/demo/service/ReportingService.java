@@ -2,18 +2,29 @@ package com.tinkoff.edu.demo.service;
 
 import com.tinkoff.edu.demo.domain.Account;
 import com.tinkoff.edu.demo.persist.AccountRepository;
+import com.tinkoff.edu.demo.persist.ReportSaver;
 
 import java.util.Collection;
 
 public class ReportingService {
     private AccountRepository accountRepository;
     private NumberedDecorator numberedDecorator;
-    private StringDecorator timestampDecorator;
+    private StringDecorator stringDecorator;
+    private ReportSaver saver;
 
-    public ReportingService(AccountRepository accountRepository, NumberedDecorator numberedDecorator, StringDecorator timestampDecorator) {
+
+    public ReportingService(AccountRepository accountRepository, NumberedDecorator numberedDecorator, StringDecorator stringDecorator) {
         this.accountRepository = accountRepository;
         this.numberedDecorator = numberedDecorator;
-        this.timestampDecorator = timestampDecorator;
+        this.stringDecorator = stringDecorator;
+    }
+
+
+    public ReportingService(AccountRepository accountRepository, NumberedDecorator numberedDecorator, StringDecorator stringDecorator, ReportSaver saver) {
+        this.accountRepository = accountRepository;
+        this.numberedDecorator = numberedDecorator;
+        this.stringDecorator = stringDecorator;
+        this.saver = saver;
     }
 
     public String getReport(){
@@ -24,9 +35,13 @@ public class ReportingService {
         for (Account currentAccount : accounts) {
             if (currentAccount == null) break;
 
-            String timestampedAccount = timestampDecorator.decorate(currentAccount.toString());
+            String timestampedAccount = stringDecorator.decorate(currentAccount.toString());
             report.append(timestampedAccount).append("\n");
              }
         return report.toString();
+    }
+
+    public void saveReport() {
+        saver.save(this.getReport());
     }
 }
