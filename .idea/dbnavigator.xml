@@ -2,7 +2,7 @@
 <project version="4">
   <component name="DBNavigator.Project.DataEditorManager">
     <record-view-column-sorting-type value="BY_INDEX" />
-    <value-preview-text-wrapping value="true" />
+    <value-preview-text-wrapping value="false" />
     <value-preview-pinned value="false" />
   </component>
   <component name="DBNavigator.Project.DatabaseBrowserManager">
@@ -12,8 +12,8 @@
     <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
-    <connection id="a466ad47-0373-4287-865f-62c86d6aaa96">
-      <console name="Connection" type="STANDARD" schema="" session="Main" />
+    <connection id="49724bbd-3155-4829-b1b1-793b33b53efb">
+      <console name="dbo-db@localhost" type="STANDARD" schema="public" session="Main" />
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">
@@ -37,11 +37,14 @@
     <last-used-operator value="EQUAL" />
     <filters />
   </component>
+  <component name="DBNavigator.Project.ScriptExecutionManager" clear-outputs="true">
+    <recently-used-interfaces />
+  </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
-      <connection id="a466ad47-0373-4287-865f-62c86d6aaa96" active="true" signed="true">
+      <connection id="49724bbd-3155-4829-b1b1-793b33b53efb" active="true" signed="true">
         <database>
-          <name value="Connection" />
+          <name value="dbo-db@localhost" />
           <description value="" />
           <database-type value="POSTGRES" />
           <config-type value="BASIC" />
@@ -52,7 +55,7 @@
           <url-type value="DATABASE" />
           <host value="localhost" />
           <port value="5432" />
-          <database value="postgres" />
+          <database value="dbo-db" />
           <tns-folder value="" />
           <tns-profile value="" />
           <type value="USER_PASSWORD" />
